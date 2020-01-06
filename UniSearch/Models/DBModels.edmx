@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBModels.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="country_pk" />
+          </Key>
+          <Property Name="country_pk" Type="int" Nullable="false" />
+          <Property Name="country_name" Type="text" />
+          <Property Name="createdAt" Type="text" />
+          <Property Name="createdBy" Type="text" />
+          <Property Name="modifiedAt" Type="text" />
+          <Property Name="modifiedBy" Type="text" />
+        </EntityType>
+        <EntityType Name="degree_data">
+          <Key>
+            <PropertyRef Name="degree_pk" />
+          </Key>
+          <Property Name="degree_pk" Type="int" Nullable="false" />
+          <Property Name="degree_link" Type="text" />
+          <Property Name="degree_type_pk" Type="int" />
+          <Property Name="uni_pk" Type="int" />
+          <Property Name="sub_degree_type_pk" Type="int" />
+          <Property Name="field_of_study_pk" Type="int" />
+          <Property Name="languages_pk" Type="int" />
+          <Property Name="country_pk" Type="int" />
+          <Property Name="study_areas_pk" Type="int" />
+          <Property Name="createdAt" Type="text" />
+          <Property Name="createdBy" Type="text" />
+          <Property Name="modifiedAt" Type="text" />
+          <Property Name="modifiedBy" Type="text" />
+        </EntityType>
+        <EntityType Name="degree_type">
+          <Key>
+            <PropertyRef Name="degree_type_pk" />
+          </Key>
+          <Property Name="degree_type_pk" Type="int" Nullable="false" />
+          <Property Name="degree_type_name" Type="text" />
+          <Property Name="createdAt" Type="text" />
+          <Property Name="createdBy" Type="text" />
+          <Property Name="modifiedAt" Type="text" />
+          <Property Name="modifiedBy" Type="text" />
+        </EntityType>
+        <EntityType Name="field_of_study">
+          <Key>
+            <PropertyRef Name="field_of_study_pk" />
+          </Key>
+          <Property Name="field_of_study_pk" Type="int" Nullable="false" />
+          <Property Name="field_of_study_name" Type="text" />
+          <Property Name="study_areas_pk" Type="int" />
+          <Property Name="createdAt" Type="text" />
+          <Property Name="createdBy" Type="text" />
+          <Property Name="modifiedAt" Type="text" />
+          <Property Name="modifiedBy" Type="text" />
+        </EntityType>
+        <EntityType Name="languages">
+          <Key>
+            <PropertyRef Name="languages_pk" />
+          </Key>
+          <Property Name="languages_pk" Type="int" Nullable="false" />
+          <Property Name="languages_name" Type="text" />
+          <Property Name="createdAt" Type="text" />
+          <Property Name="createdBy" Type="text" />
+          <Property Name="modifiedAt" Type="text" />
+          <Property Name="modifiedBy" Type="text" />
+        </EntityType>
+        <EntityType Name="study_areas">
+          <Key>
+            <PropertyRef Name="study_areas_pk" />
+          </Key>
+          <Property Name="study_areas_pk" Type="int" Nullable="false" />
+          <Property Name="study_areas_name" Type="text" />
+          <Property Name="subject_group_pk" Type="int" />
+          <Property Name="createdAt" Type="text" />
+          <Property Name="createdBy" Type="text" />
+          <Property Name="modifiedAt" Type="text" />
+          <Property Name="modifiedBy" Type="text" />
+        </EntityType>
+        <EntityType Name="sub_degree_type">
+          <Key>
+            <PropertyRef Name="sub_degree_type_pk" />
+          </Key>
+          <Property Name="sub_degree_type_pk" Type="int" Nullable="false" />
+          <Property Name="sub_degree_type_name" Type="text" />
+          <Property Name="degree_type_pk" Type="int" />
+          <Property Name="sub_degree_type_fullform" Type="text" />
+          <Property Name="createdAt" Type="text" />
+          <Property Name="createdBy" Type="text" />
+          <Property Name="modifiedAt" Type="text" />
+          <Property Name="modifiedBy" Type="text" />
+        </EntityType>
+        <EntityType Name="subject_group">
+          <Key>
+            <PropertyRef Name="subject_group_pk" />
+          </Key>
+          <Property Name="subject_group_pk" Type="int" Nullable="false" />
+          <Property Name="subject_group_name" Type="text" />
+          <Property Name="createdAt" Type="text" />
+          <Property Name="createdBy" Type="text" />
+          <Property Name="modifiedAt" Type="text" />
+          <Property Name="modifiedBy" Type="text" />
+        </EntityType>
+        <EntityType Name="university_name">
+          <Key>
+            <PropertyRef Name="uni_pk" />
+          </Key>
+          <Property Name="uni_pk" Type="int" Nullable="false" />
+          <Property Name="uni_name" Type="text" />
+          <Property Name="country_pk" Type="int" />
+          <Property Name="completed" Type="text" />
+          <Property Name="ranking" Type="int" />
+          <Property Name="admission_open" Type="text" />
+          <Property Name="admission_link" Type="text" />
+          <Property Name="createdAt" Type="text" />
+          <Property Name="createdBy" Type="text" />
+          <Property Name="modifiedAt" Type="text" />
+          <Property Name="modifiedBy" Type="text" />
+        </EntityType>
+        <EntityContainer Name="DBModelsStoreContainer">
+          <EntitySet Name="country" EntityType="Self.country" Schema="UniSearch" store:Type="Tables" />
+          <EntitySet Name="degree_data" EntityType="Self.degree_data" Schema="UniSearch" store:Type="Tables" />
+          <EntitySet Name="degree_type" EntityType="Self.degree_type" Schema="UniSearch" store:Type="Tables" />
+          <EntitySet Name="field_of_study" EntityType="Self.field_of_study" Schema="UniSearch" store:Type="Tables" />
+          <EntitySet Name="languages" EntityType="Self.languages" Schema="UniSearch" store:Type="Tables" />
+          <EntitySet Name="study_areas" EntityType="Self.study_areas" Schema="UniSearch" store:Type="Tables" />
+          <EntitySet Name="sub_degree_type" EntityType="Self.sub_degree_type" Schema="UniSearch" store:Type="Tables" />
+          <EntitySet Name="subject_group" EntityType="Self.subject_group" Schema="UniSearch" store:Type="Tables" />
+          <EntitySet Name="university_name" EntityType="Self.university_name" Schema="UniSearch" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="countries" EntityType="DBModels.country" />
+          <EntitySet Name="degree_data" EntityType="DBModels.degree_data" />
+          <EntitySet Name="degree_type" EntityType="DBModels.degree_type" />
+          <EntitySet Name="field_of_study" EntityType="DBModels.field_of_study" />
+          <EntitySet Name="languages" EntityType="DBModels.language" />
+          <EntitySet Name="study_areas" EntityType="DBModels.study_areas" />
+          <EntitySet Name="sub_degree_type" EntityType="DBModels.sub_degree_type" />
+          <EntitySet Name="subject_group" EntityType="DBModels.subject_group" />
+          <EntitySet Name="university_name" EntityType="DBModels.university_name" />
+        </EntityContainer>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="country_pk" />
+          </Key>
+          <Property Name="country_pk" Type="Int32" Nullable="false" />
+          <Property Name="country_name" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="degree_data">
+          <Key>
+            <PropertyRef Name="degree_pk" />
+          </Key>
+          <Property Name="degree_pk" Type="Int32" Nullable="false" />
+          <Property Name="degree_link" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="degree_type_pk" Type="Int32" />
+          <Property Name="uni_pk" Type="Int32" />
+          <Property Name="sub_degree_type_pk" Type="Int32" />
+          <Property Name="field_of_study_pk" Type="Int32" />
+          <Property Name="languages_pk" Type="Int32" />
+          <Property Name="country_pk" Type="Int32" />
+          <Property Name="study_areas_pk" Type="Int32" />
+          <Property Name="createdAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="degree_type">
+          <Key>
+            <PropertyRef Name="degree_type_pk" />
+          </Key>
+          <Property Name="degree_type_pk" Type="Int32" Nullable="false" />
+          <Property Name="degree_type_name" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="field_of_study">
+          <Key>
+            <PropertyRef Name="field_of_study_pk" />
+          </Key>
+          <Property Name="field_of_study_pk" Type="Int32" Nullable="false" />
+          <Property Name="field_of_study_name" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="study_areas_pk" Type="Int32" />
+          <Property Name="createdAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="language">
+          <Key>
+            <PropertyRef Name="languages_pk" />
+          </Key>
+          <Property Name="languages_pk" Type="Int32" Nullable="false" />
+          <Property Name="languages_name" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="study_areas">
+          <Key>
+            <PropertyRef Name="study_areas_pk" />
+          </Key>
+          <Property Name="study_areas_pk" Type="Int32" Nullable="false" />
+          <Property Name="study_areas_name" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="subject_group_pk" Type="Int32" />
+          <Property Name="createdAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sub_degree_type">
+          <Key>
+            <PropertyRef Name="sub_degree_type_pk" />
+          </Key>
+          <Property Name="sub_degree_type_pk" Type="Int32" Nullable="false" />
+          <Property Name="sub_degree_type_name" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="degree_type_pk" Type="Int32" />
+          <Property Name="sub_degree_type_fullform" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="subject_group">
+          <Key>
+            <PropertyRef Name="subject_group_pk" />
+          </Key>
+          <Property Name="subject_group_pk" Type="Int32" Nullable="false" />
+          <Property Name="subject_group_name" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="university_name">
+          <Key>
+            <PropertyRef Name="uni_pk" />
+          </Key>
+          <Property Name="uni_pk" Type="Int32" Nullable="false" />
+          <Property Name="uni_name" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="country_pk" Type="Int32" />
+          <Property Name="completed" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="ranking" Type="Int32" />
+          <Property Name="admission_open" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="admission_link" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedAt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="modifiedBy" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBModelsStoreContainer" CdmEntityContainer="DBModel">
+          <EntitySetMapping Name="countries">
+            <EntityTypeMapping TypeName="DBModels.country">
+              <MappingFragment StoreEntitySet="country">
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedAt" ColumnName="modifiedAt" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="country_name" ColumnName="country_name" />
+                <ScalarProperty Name="country_pk" ColumnName="country_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="degree_data">
+            <EntityTypeMapping TypeName="DBModels.degree_data">
+              <MappingFragment StoreEntitySet="degree_data">
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedAt" ColumnName="modifiedAt" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="study_areas_pk" ColumnName="study_areas_pk" />
+                <ScalarProperty Name="country_pk" ColumnName="country_pk" />
+                <ScalarProperty Name="languages_pk" ColumnName="languages_pk" />
+                <ScalarProperty Name="field_of_study_pk" ColumnName="field_of_study_pk" />
+                <ScalarProperty Name="sub_degree_type_pk" ColumnName="sub_degree_type_pk" />
+                <ScalarProperty Name="uni_pk" ColumnName="uni_pk" />
+                <ScalarProperty Name="degree_type_pk" ColumnName="degree_type_pk" />
+                <ScalarProperty Name="degree_link" ColumnName="degree_link" />
+                <ScalarProperty Name="degree_pk" ColumnName="degree_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="degree_type">
+            <EntityTypeMapping TypeName="DBModels.degree_type">
+              <MappingFragment StoreEntitySet="degree_type">
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedAt" ColumnName="modifiedAt" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="degree_type_name" ColumnName="degree_type_name" />
+                <ScalarProperty Name="degree_type_pk" ColumnName="degree_type_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="field_of_study">
+            <EntityTypeMapping TypeName="DBModels.field_of_study">
+              <MappingFragment StoreEntitySet="field_of_study">
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedAt" ColumnName="modifiedAt" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="study_areas_pk" ColumnName="study_areas_pk" />
+                <ScalarProperty Name="field_of_study_name" ColumnName="field_of_study_name" />
+                <ScalarProperty Name="field_of_study_pk" ColumnName="field_of_study_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="languages">
+            <EntityTypeMapping TypeName="DBModels.language">
+              <MappingFragment StoreEntitySet="languages">
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedAt" ColumnName="modifiedAt" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="languages_name" ColumnName="languages_name" />
+                <ScalarProperty Name="languages_pk" ColumnName="languages_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="study_areas">
+            <EntityTypeMapping TypeName="DBModels.study_areas">
+              <MappingFragment StoreEntitySet="study_areas">
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedAt" ColumnName="modifiedAt" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="subject_group_pk" ColumnName="subject_group_pk" />
+                <ScalarProperty Name="study_areas_name" ColumnName="study_areas_name" />
+                <ScalarProperty Name="study_areas_pk" ColumnName="study_areas_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sub_degree_type">
+            <EntityTypeMapping TypeName="DBModels.sub_degree_type">
+              <MappingFragment StoreEntitySet="sub_degree_type">
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedAt" ColumnName="modifiedAt" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="sub_degree_type_fullform" ColumnName="sub_degree_type_fullform" />
+                <ScalarProperty Name="degree_type_pk" ColumnName="degree_type_pk" />
+                <ScalarProperty Name="sub_degree_type_name" ColumnName="sub_degree_type_name" />
+                <ScalarProperty Name="sub_degree_type_pk" ColumnName="sub_degree_type_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subject_group">
+            <EntityTypeMapping TypeName="DBModels.subject_group">
+              <MappingFragment StoreEntitySet="subject_group">
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedAt" ColumnName="modifiedAt" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="subject_group_name" ColumnName="subject_group_name" />
+                <ScalarProperty Name="subject_group_pk" ColumnName="subject_group_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="university_name">
+            <EntityTypeMapping TypeName="DBModels.university_name">
+              <MappingFragment StoreEntitySet="university_name">
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modifiedAt" ColumnName="modifiedAt" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="admission_link" ColumnName="admission_link" />
+                <ScalarProperty Name="admission_open" ColumnName="admission_open" />
+                <ScalarProperty Name="ranking" ColumnName="ranking" />
+                <ScalarProperty Name="completed" ColumnName="completed" />
+                <ScalarProperty Name="country_pk" ColumnName="country_pk" />
+                <ScalarProperty Name="uni_name" ColumnName="uni_name" />
+                <ScalarProperty Name="uni_pk" ColumnName="uni_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

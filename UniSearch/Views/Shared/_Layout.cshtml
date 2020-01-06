@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+
+                @Html.ActionLink("Language", "LanguageIndex", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-header">
+
+                @Html.ActionLink("Country", "CountryIndex", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-header">
+
+                @Html.ActionLink("Subject Group", "SubjectGroupIndex", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-header">
+
+                @Html.ActionLink("Degree Type", "DegreeTypeIndex", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-header">
+
+                @Html.ActionLink("Study Area", "StudyAreaIndex", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-header">
+
+                @Html.ActionLink("Field Of Study", "FieldOfStudyIndex", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-header">
+
+                @Html.ActionLink("Subject Degree Type", "SubjectDegreeTypeIndex", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-header">
+
+                @Html.ActionLink("University", "UniversityNameIndex", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-header">
+
+                @Html.ActionLink("Logout", "Logout", "Home", null, new { @class = "navbar-brand" })
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            @*<p>jQuery ajax - Asp.Net MVC CRUD Operations</p>*@
+        </footer>
+    </div>
+
+    <div class="loaderbody" id="loaderbody">
+        <div class="loader"></div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/Scripts.js"></script>
+    <script src="~/Scripts/notify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿@model Portal.Helper.SubjectDegreeType
+
+@{
+    ViewBag.Title = "SubjectDegreeTypeAddOrEdit";
+    Layout = null;
+}
+
+
+
+@using (Html.BeginForm("SubjectDegreeTypeAddOrEdit", "Home", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return jQueryAjaxPost(this);", data_restUrl = Url.Action("SubjectDegreeTypeAddOrEdit", "Home", new { id=0}) }))//data-resetUrl
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.sub_degree_type_pk)
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.sub_degree_type_name, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.sub_degree_type_name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.sub_degree_type_name)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.sub_degree_type_fullform, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.sub_degree_type_fullform, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.sub_degree_type_fullform)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.degree_type_pk, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.degree_type_pk, new SelectList(Model.degree_type_list, "degree_type_pk", "degree_type_name"), "Select Degree Type", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.degree_type_pk)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Submit" class="btn btn-default" />
+
+                    </div>
+                </div>
+            </div>
+           
+            
+        </div>
+    </div>
+}

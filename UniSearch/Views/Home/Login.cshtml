@@ -1,0 +1,78 @@
+﻿@model Portal.Helper.Login
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="centerDivLogin">
+
+        @using (Html.BeginForm("LoginUser", "Home", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return jQueryAjaxPost(this);", data_restUrl = Url.Action("LoginUser", "Home", new { id = 0 }) }))//data-resetUrl
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true)
+
+                    <div class="col-lg-12">
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <h3>Admin Portal</h3>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                @{
+                                    if (ViewBag.isLoginFailed != null)
+                                    {
+                                        if (ViewBag.isLoginFailed == true)
+                                        {
+                                            <font color="red">*Invalid Login Credentials!</font>
+                                        }
+                                    }
+                                   
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", required = "true",placeholder="Username" } })
+                                @Html.ValidationMessageFor(model => model.Username)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", Type = "Password", required = "true",placeholder="Password" } })
+                                @Html.ValidationMessageFor(model => model.Password)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="submit" value="Submit" class="btn btn-default" />
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        }
+
+
+
+    </div>
+</body>
+</html>
